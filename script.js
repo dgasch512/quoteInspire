@@ -3,12 +3,23 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
-
+const loader = document.getElementById('loader');
 
 let apiQuotes = [];
 
+function ShowLoadingSpinner() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+function removeLoadingSpinner() {
+  quoteContainer.hidden = false; 
+  loader.hidden = true;
+}
+
 // Show new quote
 function newQuote() {
+  ShowLoadingSpinner();
   // pick a random quote from API array
   const quote = data[Math.floor(Math.random() * data.length)];
   // If author is blank, replace with 'unknown'
@@ -23,11 +34,14 @@ function newQuote() {
   } else {
     quoteText.classList.remove('long-quote');
   }
+  // Set quote, hide loader
   quoteText.textContent = quote.text;
+  removeLoadingSpinner();
 }
 
 // Get quote from API
 async function getQuotes() {
+  ShowLoadingSpinner();
   const proxyURL = 'https://obscure-hollows-17127.herokuapp.com/'
   const apiURL = 'https://type.fit/api/quotes';
   try {

@@ -104,3 +104,43 @@ button:active {
     font-size: 2.5rem;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .quote-container {
+    margin: auto 10px;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+  }
+
+  .quote-author {
+    font-size: 1.5rem;
+  }
+
+  .fa-twitter {
+    font-size: 1rem;
+  }
+
+  #new-quote {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #new-quote {
+    font-size: .9rem;
+  }
+
+  .quote-text {
+    font-size: 1.2rem;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.2rem 1rem;
+  }
+}
